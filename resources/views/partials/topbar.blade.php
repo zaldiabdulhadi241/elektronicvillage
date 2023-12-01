@@ -1,4 +1,4 @@
-<nav class="flex flex-row justify-between px-32 py-3 text-text">
+<nav class="flex flex-row justify-between px-32 py-4 text-text">
     <p>Selamat datang di ElektronicVillage</p>
     <div class="flex flex-row gap-x-3 items-center">
         <a href="#" class="flex flex-row gap-x-2 items-center">

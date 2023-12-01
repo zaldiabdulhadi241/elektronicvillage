@@ -24,50 +24,10 @@
 </head>
 
 <body class="font-hanken">
-    @include('partials.topbar')
+    @yield('topbar')
     @include('partials.navbar')
-    <div class="container px-32 mx-auto my-5">
-        @include('partials.categories-dropdown')
-        @yield('container')
+    @yield('container')
     </div>
-    {{-- <div class="owl-carousel owl-theme">
-        <div class="item">
-            <h4>1</h4>
-        </div>
-        <div class="item">
-            <h4>2</h4>
-        </div>
-        <div class="item">
-            <h4>3</h4>
-        </div>
-        <div class="item">
-            <h4>4</h4>
-        </div>
-        <div class="item">
-            <h4>5</h4>
-        </div>
-        <div class="item">
-            <h4>6</h4>
-        </div>
-        <div class="item">
-            <h4>7</h4>
-        </div>
-        <div class="item">
-            <h4>8</h4>
-        </div>
-        <div class="item">
-            <h4>9</h4>
-        </div>
-        <div class="item">
-            <h4>10</h4>
-        </div>
-        <div class="item">
-            <h4>11</h4>
-        </div>
-        <div class="item">
-            <h4>12</h4>
-        </div>
-    </div> --}}
     @include('partials.footer')
 
 
@@ -80,10 +40,19 @@
     <script>
         $(document).ready(function() {
 
-            $('.owl-carousel').owlCarousel({
+            $('.owl-one').owlCarousel({
                 items: 1,
                 margin: 10,
                 autoHeight: true,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+            });
+
+            $('.owl-two').owlCarousel({
+                items: 3,
+                margin: 10,
+                dots: false,
                 loop: true,
                 autoplay: true,
                 autoplayTimeout: 3000,

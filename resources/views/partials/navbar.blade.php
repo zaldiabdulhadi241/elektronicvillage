@@ -1,5 +1,5 @@
-<nav class="flex flex-row justify-between px-32">
-    <div class="nav-brand flex flex-row items-center">
+<nav class="flex flex-row justify-between px-32 py-3">
+    <a href="/" class="nav-brand flex flex-row items-center">
         <div class="brand-logo me-3">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="48" height="48" rx="10" fill="#F3F9FB" />
@@ -12,7 +12,7 @@
             </svg>
         </div>
         <h1 class="brand-name text-primary text-2xl font-bold">ElectronicVillage</h1>
-    </div>
+    </a>
     <div class="nav-searchbox flex flex-row items-center gap-x-3 px-4 py-2 text-text bg-bg3 rounded-xl">
         <svg class="mb-1" width="18" height="18" viewBox="0 0 18 18" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@
             name="search" id="search" placeholder="Cari barang-barang impianmu">
     </div>
     <div class="nav-cta flex flex-row items-center gap-x-5 font-bold text-text">
-        <a href="#" class="auth flex flex-row items-center gap-x-2">
+        <a href="/auth/register" class="auth flex flex-row items-center gap-x-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="8" r="4.75" stroke="#008ECC" stroke-width="1.5" />
                 <path

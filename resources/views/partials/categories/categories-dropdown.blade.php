@@ -1,5 +1,6 @@
 <section class="categories-dropdown flex flex-row gap-x-4 text-sm font-medium">
-    <button class="relative flex justify-center items-center bg-primary focus:outline-none shadow rounded-full group">
+    <button
+        class="relative z-10 flex justify-center items-center bg-primary focus:outline-none shadow rounded-full group">
         <p class="ps-4 text-bg3">Semua</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +22,7 @@
         </span>
     </button>
     <button
-        class="relative caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
+        class="relative z-10 caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
         <p class="ps-4">Handphone</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +42,7 @@
         </span>
     </button>
     <button
-        class="relative caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
+        class="relative z-10 caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
         <p class="ps-4">Tablet</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +62,7 @@
         </span>
     </button>
     <button
-        class="relative caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
+        class="relative z-10 caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
         <p class="ps-4">Kamera</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +81,7 @@
         </span>
     </button>
     <button
-        class="relative caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full  group">
+        class="relative z-10 caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full  group">
         <p class="ps-4">Laptop</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +101,7 @@
         </span>
     </button>
     <button
-        class="relative caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
+        class="relative z-10 caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
         <p class="ps-4">Jam Tangan</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -122,7 +123,7 @@
         </span>
     </button>
     <button
-        class="relative caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
+        class="relative z-10 caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
         <p class="ps-4">Tv & Audio</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -142,7 +143,7 @@
         </span>
     </button>
     <button
-        class="relative caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
+        class="relative z-10 caret-bg2 flex justify-center items-center bg-bg3 focus:outline-none shadow text-heading rounded-full group">
         <p class="ps-4">Aksesoris</p>
         <span class="p-2 hover:bg-gray-100">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
