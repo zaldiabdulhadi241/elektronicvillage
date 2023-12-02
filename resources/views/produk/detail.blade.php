@@ -62,7 +62,7 @@
                             </svg>
                             Masukkan Keranjang</button>
                     </form>
-                    <form action="" method="POST">
+                    <form action="/user/keranjang">
                         <button class="px-11 py-3 border border-primary bg-primary text-bg3">Beli Sekarang</button>
                     </form>
                 </div>

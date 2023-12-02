@@ -1,19 +1,21 @@
     @extends('layouts.main')
 
-    @section('topbar')
-        @include('partials.topbar')
-    @endsection
+    @auth
+        @section('topbar')
+            @include('partials.topbar')
+        @endsection
+    @endauth
 
     @section('container')
         <div class="container px-32 mx-auto my-5">
             @include('partials.categories.categories-dropdown')
             @include('partials.carousel')
-            <div class="best-promo mb-28">
+            <div class="best-promo mb-28 mt-3">
                 <div class="flex flex-row justify-between">
                     <h2 class="text-text text-xl font-bold">Dapatkan penawaran terbaik untuk <span
                             class="text-primary">Handphone</span>
                     </h2>
-                    <a href="#" class="flex flex-row justify-center items-center">
+                    <a href="/discover" class="flex flex-row justify-center items-center">
                         <p class="font-medium">Lihat Semua</p>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +26,7 @@
                 </div>
                 <div class="w-80 mt-4 h-1 mb-10 bg-primary"></div>
                 <div class="grid grid-cols-4 gap-x-4">
-                    <a href="#" class="bg-white border border-border rounded-3xl shadow relative overflow-hidden">
+                    <a href="/detail" class="bg-white border border-border rounded-3xl shadow relative overflow-hidden">
                         <div
                             class="w-16 h-16 bg-primary absolute top-0 right-0 rounded-bl-3xl flex flex-col justify-center items-center text-bg3 font-bold">
                             <p class="text-sm">56%</p>

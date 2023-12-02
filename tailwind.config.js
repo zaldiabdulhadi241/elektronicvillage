@@ -14,6 +14,8 @@ export default {
             yellow2: "#E3BC01",
             bg3: "#F3F9FB",
             line: "#D9D9D9",
+            error: "#D25C62",
+            success: "#809C13",
         },
         fontFamily: {
             hanken: ["Hanken Grotesk", "sans-serif"],
