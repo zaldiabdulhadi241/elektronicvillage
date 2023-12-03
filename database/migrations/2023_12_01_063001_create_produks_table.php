@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_produk');
             $table->string('slug');
-            $table->text('deskripsi_produk');
+            $table->text('deskripsi_produk')->nullable();
             $table->integer('harga');
             $table->integer('stok');
             $table->foreignId('id_kategori');

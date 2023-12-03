@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kategori::create([
-            'nama_kategori' => 'Hanphone',
+            'nama_kategori' => 'Handphone',
             'gambar_kategori' => 'handphone.png'
         ]);
         Kategori::create([

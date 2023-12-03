@@ -36,8 +36,8 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard', function () {
-    return view('produk.detail');
-});
+    return view('admin.dashboard');
+})->prefix('admin')->middleware('admin', 'auth');
 
 Route::post('/register', [RegisterController::class, 'store'])->prefix('auth');
 Route::get('/register', [RegisterController::class, 'register'])->middleware('guest')->prefix('auth');
@@ -65,10 +65,12 @@ Route::put('/profile', [ProfileController::class, 'update'])->prefix('user');
 
 Route::get('/transaction-history', [TransactionHistoryController::class, 'index'])->prefix('user');
 
-Route::get('/produk', [ProdukController::class, 'index']);
-Route::post('/produk', [ProdukController::class, 'store']);
-Route::put('/produk', [ProdukController::class, 'update']);
-Route::delete('/produk', [ProdukController::class, 'destroy']);
+Route::get('/produk', [ProdukController::class, 'index'])->prefix('admin');
+Route::get('/produk/tambah/', [ProdukController::class, 'tambah_produk'])->prefix('admin');
+Route::post('/produk', [ProdukController::class, 'store'])->prefix('admin');
+Route::get('/produk/edit/{produk}', [ProdukController::class, 'edit'])->prefix('admin');
+Route::put('/produk/{produk}', [ProdukController::class, 'update'])->prefix('admin');
+Route::delete('/produk/{produk}', [ProdukController::class, 'destroy'])->prefix('admin');
 
 Route::get('/produk/{produk:slug}', [ProdukController::class, 'show']);
 Route::post('/produk/{produk:slug}', [ProdukController::class, 'addToCart']);

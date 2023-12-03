@@ -81,7 +81,7 @@
         </div>
         <h3 class="text-heading font-medium">Deskripsi Produk</h3>
         <div class="flex flex-col">
-            <p class="text-justify text-light">
+            <p class="text-justify text-text whitespace-pre-wrap">
                 {!! $produk->deskripsi_produk !!}
             </p>
         </div>
