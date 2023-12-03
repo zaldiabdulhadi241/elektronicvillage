@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@include('partials.topbar')
+
 @section('container')
     <div class="flex flex-col gap-y-8 px-32 py-3">
         <div class="flex flex-row justify-start items-start">
@@ -81,7 +83,7 @@
         </div>
         <h3 class="text-heading font-medium">Deskripsi Produk</h3>
         <div class="flex flex-col">
-            <p class="text-justify text-text whitespace-pre-wrap">
+            <p class="text-justify text-text whitespace-pre-line">
                 {!! $produk->deskripsi_produk !!}
             </p>
         </div>

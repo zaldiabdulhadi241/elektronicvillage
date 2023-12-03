@@ -49,7 +49,7 @@
                             Data Users
                         </a>
                         <div class="sb-sidenav-menu-heading">Transaksi</div>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="/admin/transaksi/">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Data Transaksi
                         </a>
