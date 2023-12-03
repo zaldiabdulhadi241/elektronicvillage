@@ -4,19 +4,18 @@
     <div class="flex flex-col gap-y-8 px-32 py-3">
         <div class="flex flex-row justify-start items-start">
             <div class="flex flex-col">
-                <img class="mb-3" src="{{ asset('images/detail1.png') }}" width="405px" height="300px" alt="">
+                <img class="mb-3" src="{{ asset('storage/images/detail1.png') }}" width="405px" height="300px" alt="">
                 <div class="flex flex-row gap-x-2">
-                    <img clas src="{{ asset('images/detail1.png') }}" width="100px" height="100px" alt="">
-                    <img clas src="{{ asset('images/detail1.png') }}" width="100px" height="100px" alt="">
-                    <img clas src="{{ asset('images/detail1.png') }}" width="100px" height="100px" alt="">
+                    <img clas src="{{ asset('storage/images/detail1.png') }}" width="100px" height="100px" alt="">
+                    <img clas src="{{ asset('storage/images/detail1.png') }}" width="100px" height="100px" alt="">
+                    <img clas src="{{ asset('storage/images/detail1.png') }}" width="100px" height="100px" alt="">
                 </div>
             </div>
             <div class="flex flex-col ms-24">
-                <p class="text-primary font-semibold text-xl">Hemat - Rp200.000</p>
-                <h1 class="text-4xl text-heading font-semibold mb-3">Galaxy M13 (4GB | 64 GB )</h1>
+                {{-- <p class="text-primary font-semibold text-xl">Hemat - Rp200.000</p> --}}
+                <h1 class="text-4xl text-heading font-semibold mb-3">{{ $produk->nama_produk }}</h1>
                 <div class="flex flex-row text-3xl font-bold mb-5">
-                    <h3 class="text-heading me-2">Rp19.800.000</h3>
-                    <h3 class="text-light line-through">Rp20.000.000</h3>
+                    <h3 class="text-heading me-2">Rp{{ number_format($produk->harga) }}</h3>
                 </div>
                 <div class="gap-y-4 flex flex-col mb-8">
                     <div class="flex flex-row justify-start text-light gap-x-5">
@@ -33,18 +32,23 @@
                     <div class="flex flex-row text-light justify-start gap-x-8">
                         <p>Kuantitas</p>
                         <div class="flex flex-col">
-                            <p>Tersisa 8 Pcs</p>
+                            <p>Tersisa {{ $produk->stok }} Pcs</p>
                         </div>
                     </div>
-                    <div class="flex flex-row items-center text-light justify-start gap-x-8">
-                        <p>Jumlah</p>
-                        <div class="border p-2">
-                            <input type="number" name="qty" value="1">
-                        </div>
-                    </div>
+
                 </div>
-                <div class="flex flex-row gap-x-4 items-center">
-                    <form action="" method="POST">
+                <div class="block gap-x-4 items-center">
+                    <form action="/user/keranjang/" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="id_produk" value="{{ $produk->id }}">
+                        <input type="hidden" name="total_harga" value="{{ $produk->harga }}">
+                        <div class="flex flex-row items-center text-light justify-start gap-x-8 mb-4">
+                            <p>Jumlah</p>
+                            <div class="border p-2">
+                                <input type="number" name="jumlah_barang" value="1">
+                            </div>
+                        </div>
                         <button class="flex flex-row gap-x-2 items-center px-4 py-3 border border-primary text-primary"><svg
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -62,9 +66,9 @@
                             </svg>
                             Masukkan Keranjang</button>
                     </form>
-                    <form action="/user/keranjang">
+                    {{-- <form action="/user/keranjang">
                         <button class="px-11 py-3 border border-primary bg-primary text-bg3">Beli Sekarang</button>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
         </div>
@@ -73,32 +77,12 @@
             <h3 class="text-light">Kategori</h3>
             <p class="text-primary font-semibold mb-8">Handphone</p>
             <h3 class="text-light">Stok</h3>
-            <p>8</p>
+            <p>{{ $produk->stok }}</p>
         </div>
         <h3 class="text-heading font-medium">Deskripsi Produk</h3>
         <div class="flex flex-col">
             <p class="text-justify text-light">
-                Ready Stok (selama iklan ini masih ada)
-
-                Produk Baru dan Segel , 100% Original (IMEI terdaftar)Warna bisa di pilih saat Memesan Paket aman untuk
-                dikirim ke seluruh Indonesia (dilapisi Bubble wrap) Gratis Ram/memori internal : -Samsung M14
-                5G4GB/64GB4GB/128GB6GB/128GBGaransi Resmi Samsung 1 TahunSpesifikasi :NETWORKTechnology GSM / HSPA / LTE /
-                5G2G bands GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2 (dual sim model only)3G bands HSDPA 850 / 900 /
-                1700(AWS) / 1900 / 21004G bands 1, 2, 3, 4, 5, 7, 8, 12, 17, 20, 26, 28, 38, 40, 41, 665G bands 1, 3, 5, 7,
-                8, 20, 28, 38, 40, 41, 66, 77, 78 SA/NSASpeed HSPA, LTE, 5GLAUNCHAnnounced 2023, March 08Status Available.
-                Released 2023, March 08BODYDimensions 166.8 x 77.2 x 9.4 mm (6.57 x 3.04 x 0.37 in)Weight 206 g (7.27
-                oz)Build Glass front (Gorilla Glass 5), plastic back, plastic frameSIM Single SIM (Nano-SIM) or Dual SIM
-                (Nano-SIM, dual stand-by)DISPLAYType PLS LCD, 90HzSize 6.6 inches, 104.9 cm2 (~81.5% screen-to-body
-                ratio)Resolution 1080 x 2408 pixels, 20:9 ratio (~400 ppi density)Protection Corning Gorilla Glass
-                5PLATFORMOS Android 13, One UI core 5.1Chipset Exynos 1330 (5nm)CPU Octa-core (2x2.4 GHz Cortex-A78 & 6x2.0
-                GHz Cortex-A55)GPU Mali-G68 MP2MEMORYCard slot microSDHC (dedicated slot)Internal 64GB 4GB RAM, 128GB 4GB
-                RAM, 128GB 6GB RAMMAIN CAMERATriple 50 MP, f/1.8, (wide), PDAF2 MP, f/2.4, (macro)2 MP, f/2.4,
-                (depth)Features LED flash, panorama, HDRVideo 1080p@30fpsSELFIE CAMERASingle 13 MP, f/2.0, (wide)Video
-                1080p@30fpsSOUNDLoudspeaker Yes3.5mm jack YesCOMMSWLAN Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi
-                DirectBluetooth 5.2, A2DP, LEPositioning GPS, GLONASS, GALILEO, BDS, QZSS, NavICNFC YesRadio UnspecifiedUSB
-                USB Type-C 2.0FEATURESSensors Fingerprint (side-mounted), accelerometer, gyro, proximity, compassMessaging
-                SMS(threaded view), MMS, Email, Push Email, IMBrowser HTML5BATTERYType Li-Po 6000 mAh, non-removableCharging
-                15W wired - international
+                {!! $produk->deskripsi_produk !!}
             </p>
         </div>
         <div class="produk-terkait my-28">
@@ -116,19 +100,31 @@
             </div>
             <div class="w-80 mt-4 h-1 mb-10 bg-primary"></div>
             <div class="grid grid-cols-4">
-                <a href="#" class="bg-white border border-border rounded-3xl shadow relative overflow-hidden">
-                    <div class="bg-bg1">
-                        <img class="rounded-t-lg mx-auto" width="150px" src="{{ asset('images/produk1.png') }}"
-                            alt="" />
-                    </div>
-                    <div class="p-5">
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Galaxy S22 Ultra
-                        </h5>
-                        <div class="with-discount flex flex-row gap-x-2 items-center">
-                            <p class="mb-3 font-bold text-lg">Rp20.000.000</p>
+                @foreach ($produkList as $produk)
+                    <a href="/produk/{{ $produk->slug }}"
+                        class="bg-white border border-border rounded-3xl shadow relative overflow-hidden">
+                        <div
+                            class="w-16 h-16 bg-primary absolute top-0 right-0 rounded-bl-3xl flex flex-col justify-center items-center text-bg3 font-bold">
+                            <p class="text-sm">56%</p>
+                            <p class="text-sm">OFF</p>
                         </div>
-                    </div>
-                </a>
+                        <div class="bg-bg1">
+                            <img class="rounded-t-lg mx-auto" width="150px"
+                                src="{{ asset('storage/images/produk1.png') }}" alt="" />
+                        </div>
+                        <div class="p-5">
+                            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{ $produk->nama_produk }}
+                            </h5>
+                            <div class="with-discount flex flex-row gap-x-2 items-center">
+                                <p class="mb-3 font-bold text-lg">Rp{{ number_format($produk->harga) }}</p>
+                                <p class="mb-3 font-bold text-md line-through text-light">Rp20.000.000</p>
+                            </div>
+                            <hr class="text-border mb-2">
+                            <p class="mb-3 font-normal text-primary text-md">Hemat - Rp200.000</p>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>

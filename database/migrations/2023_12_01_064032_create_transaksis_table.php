@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_keranjang')->nullable();
             $table->foreignId('id_user');
             $table->foreignId('id_produk');
-            $table->foreignId('id_penjual');
             $table->integer('jumlah_barang');
+            $table->integer('ongkos_kirim');
             $table->integer('total_harga');
-            $table->integer('total_pengiriman');
+            $table->string('snap_token')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

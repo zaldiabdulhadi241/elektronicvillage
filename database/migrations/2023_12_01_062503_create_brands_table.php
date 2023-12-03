@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_kategori');
+            $table->string('nama_brand');
             $table->string('gambar_brand');
             $table->timestamps();
         });

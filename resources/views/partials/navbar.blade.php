@@ -49,7 +49,7 @@
                 <h3>{{ Auth::user()->nama }}</h3>
             </a>
             <span class="text-text">|</span>
-            <a href="/user/keranjang" class="cart flex flex-row items-center gap-x-2">
+            <a href="/user/keranjang/{{ Auth::user()->id }}" class="cart flex flex-row items-center gap-x-2">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M7.42226 19.8203C7.84426 19.8203 8.18726 20.1633 8.18726 20.5853C8.18726 21.0073 7.84426 21.3493 7.42226 21.3493C7.00026 21.3493 6.65826 21.0073 6.65826 20.5853C6.65826 20.1633 7.00026 19.8203 7.42226 19.8203Z"
