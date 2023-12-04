@@ -34,8 +34,8 @@
                                 <p class="text-sm">56%</p>
                                 <p class="text-sm">OFF</p>
                             </div>
-                            <div class="bg-bg1">
-                                <img class="rounded-t-lg mx-auto" width="150px"
+                            <div class="bg-bg1 flex h-48">
+                                <img class="rounded-t-lg mx-auto object-cover" width="150px"
                                     src="{{ asset('storage/images/' . $produk->foto_produk) }}"
                                     alt="$produk->nama_produk" />
                             </div>
@@ -91,7 +91,7 @@
                             class="bg-white border border-border rounded-3xl shadow relative overflow-hidden">
                             <div class="bg-bg1">
                                 <img class="rounded-t-lg mx-auto" width="150px"
-                                    src="{{ asset('storage/images/produk1.png') }}" alt="" />
+                                    src="{{ asset('storage/images/' . $produk->foto_produk) }}" alt="" />
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">

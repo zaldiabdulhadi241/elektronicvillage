@@ -11,13 +11,9 @@ class Kategori extends Model
 
     protected $guarded = ['id'];
 
+
     public function produk()
     {
-        $this->hasMany(Produk::class, 'id_kategori', 'id');
-    }
-
-    public function brand()
-    {
-        $this->hasMany(Brand::class);
+        return $this->hasMany(Produk::class, 'id_kategori', 'id');
     }
 }

@@ -15,6 +15,10 @@
                     stroke="#008ECC" stroke-linecap="round" />
             </svg>
             <span>Lacak pesananmu</span>
+            @if (Auth::user()->role == 'admin')
+                <span> | </span>
+                <a href="/admin/dashboard">Dashboard Admin</a>
+            @endif
         </a>
     </div>
 </nav>

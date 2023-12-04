@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminManageController;
 use App\Http\Controllers\AdminTransactionController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KeranjangController;
@@ -66,12 +68,29 @@ Route::put('/profile', [ProfileController::class, 'update'])->prefix('user');
 
 Route::get('/transaction-history', [TransactionHistoryController::class, 'index'])->prefix('user');
 
+Route::get('/produks', function () {
+    $data = Produk::latest()->get()->load('kategori');
+    return view('user.produkList', [
+        'produkList' => $data,
+        'title' => $data[1]->kategori->nama_kategori,
+    ]);
+});
+
 Route::get('/produk', [ProdukController::class, 'index'])->prefix('admin');
 Route::get('/produk/tambah/', [ProdukController::class, 'tambah_produk'])->prefix('admin');
 Route::post('/produk', [ProdukController::class, 'store'])->prefix('admin');
 Route::get('/produk/edit/{produk}', [ProdukController::class, 'edit'])->prefix('admin');
 Route::put('/produk/{produk}', [ProdukController::class, 'update'])->prefix('admin');
 Route::delete('/produk/{produk}', [ProdukController::class, 'destroy'])->prefix('admin');
+
+Route::get('/brands', [BrandController::class, 'index'])->prefix('admin');
+Route::get('/brands/tambah', [BrandController::class, 'tambah'])->prefix('admin');
+Route::post('/brands', [BrandController::class, 'store'])->prefix('admin');
+Route::get('/brands/edit/{brand}', [BrandController::class, 'edit'])->prefix('admin');
+Route::put('/brands/{brand}', [BrandController::class, 'update'])->prefix('admin');
+Route::delete('/brands/{brand}', [BrandController::class, 'destroy'])->prefix('admin');
+
+
 
 Route::get('/produk/{produk:slug}', [ProdukController::class, 'show']);
 Route::post('/produk/{produk:slug}', [ProdukController::class, 'addToCart']);
@@ -82,10 +101,17 @@ Route::post('/kategori', [KategoriController::class, 'store'])->prefix('user');
 Route::put('/kategori', [KategoriController::class, 'update'])->prefix('user');
 Route::delete('/kategori', [KategoriController::class, 'destroy'])->prefix('user');
 
-Route::get('/users', [UserController::class, 'index'])->prefix('user');
-Route::post('/users', [UserController::class, 'store'])->prefix('user');
-Route::put('/users', [UserController::class, 'update'])->prefix('user');
-Route::delete('/users', [UserController::class, 'destroy'])->prefix('user');
+Route::get('/user/users', [UserController::class, 'index']);
+Route::post('/user/users', [UserController::class, 'store']);
+Route::put('/user/users', [UserController::class, 'update']);
+Route::delete('/user/users', [UserController::class, 'destroy']);
+
+Route::get('/users', [AdminManageController::class, 'index'])->prefix('admin');
+Route::get('/users/tambah', [AdminManageController::class, 'tambah'])->prefix('admin');
+Route::post('/users', [AdminManageController::class, 'store'])->prefix('admin');
+Route::get('/users/edit/{user}', [AdminManageController::class, 'edit'])->prefix('admin');
+Route::put('/users/{user}', [AdminManageController::class, 'update'])->prefix('admin');
+Route::delete('/users/{user}', [AdminManageController::class, 'destroy'])->prefix('admin');
 
 Route::get('/transaksi', [TransactionController::class, 'index'])->prefix('user');
 Route::post('/transaksi', [TransactionController::class, 'store'])->prefix('user');

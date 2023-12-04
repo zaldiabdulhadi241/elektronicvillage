@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('harga');
             $table->integer('stok');
             $table->foreignId('id_kategori');
+            $table->foreignId('id_brand');
             $table->string('foto_produk');
             $table->timestamps();
         });

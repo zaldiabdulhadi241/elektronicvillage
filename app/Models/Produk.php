@@ -19,7 +19,7 @@ class Produk extends Model
 
     public function brand()
     {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class, 'id_brand', 'id');
     }
 
     public function keranjang()

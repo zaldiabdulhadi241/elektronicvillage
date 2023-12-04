@@ -22,6 +22,14 @@
                 <input type="text" class="form-control" id="harga_produk" name="harga">
             </div>
             <div class="mb-3">
+                <label for="brand_produk" class="form-label">Brand Produk</label>
+                <select class="form-control" name="id_brand" id="brand_produk">
+                    @foreach ($brands as $brand)
+                        <option value="{{ $brand->id }}">{{ $brand->nama_brand }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="kategori_produk" class="form-label">Kategori Produk</label>
                 <select class="form-control" name="id_kategori" id="kategori_produk">
                     @foreach ($kategoris as $kategori)

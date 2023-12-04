@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Kategori;
 use App\Models\Keranjang;
 use App\Models\Produk;
@@ -19,12 +20,22 @@ class ProdukController extends Controller
         ]);
     }
 
+    public function produks()
+    {
+        $data = Produk::latest()->get()->load('kategori');
+        return view('user.produkList', [
+            'produkList' => $data,
+        ]);
+    }
+
     public function tambah_produk()
     {
         $data = Kategori::latest()->get();
+        $dataBrand = Brand::latest()->get();
 
         return view('admin.produk.tambah', [
             'kategoris' => $data,
+            'brands' => $dataBrand,
         ]);
     }
 
@@ -39,7 +50,7 @@ class ProdukController extends Controller
 
         if ($request->hasFile('foto_produk')) {
             $reqName = $request->file('foto_produk')->getClientOriginalName();
-            $request->file('foto_produk')->storeAs('img', $reqName);
+            $request->file('foto_produk')->storeAs('images', $reqName);
             $data['foto_produk'] = $reqName;
         }
 
@@ -49,11 +60,13 @@ class ProdukController extends Controller
 
     public function edit(Produk $produk)
     {
-        $data = Produk::where('id', $produk->id)->first()->load('kategori');
+        $data = Produk::where('id', $produk->id)->first()->load('kategori', 'brand');
         $dataKategori = Kategori::latest()->get();
+        $dataBrand = Brand::latest()->get();
         return view('admin.produk.edit', [
             'produk' => $data,
             'kategoris' => $dataKategori,
+            'brands' => $dataBrand,
         ]);
     }
 
@@ -84,9 +97,10 @@ class ProdukController extends Controller
 
     public function show(Produk $produk)
     {
+        $data = Produk::where('id', $produk->id)->first()->load('brand');
         return view('produk.detail', [
-            'produk' => $produk,
-            'produkList' => Produk::latest()->get()
+            'produk' => $data,
+            'produkList' => Produk::latest()->get(),
         ]);
     }
 

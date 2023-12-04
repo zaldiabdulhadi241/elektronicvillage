@@ -1,16 +1,19 @@
 @extends('layouts.main')
 
-@include('partials.topbar')
+@auth
+    @include('partials.topbar')
+@endauth
 
 @section('container')
     <div class="flex flex-col gap-y-8 px-32 py-3">
         <div class="flex flex-row justify-start items-start">
             <div class="flex flex-col">
-                <img class="mb-3" src="{{ asset('storage/images/detail1.png') }}" width="405px" height="300px" alt="">
+                <img class="mb-3" src="{{ asset('storage/images/' . $produk->foto_produk) }}" width="405px" height="300px"
+                    alt="">
                 <div class="flex flex-row gap-x-2">
-                    <img clas src="{{ asset('storage/images/detail1.png') }}" width="100px" height="100px" alt="">
-                    <img clas src="{{ asset('storage/images/detail1.png') }}" width="100px" height="100px" alt="">
-                    <img clas src="{{ asset('storage/images/detail1.png') }}" width="100px" height="100px" alt="">
+                    <img clas src="{{ asset('storage/images/produk1.png') }}" width="100px" height="100px" alt="">
+                    <img clas src="{{ asset('storage/images/produk1.png') }}" width="100px" height="100px" alt="">
+                    <img clas src="{{ asset('storage/images/produk1.png') }}" width="100px" height="100px" alt="">
                 </div>
             </div>
             <div class="flex flex-col ms-24">
@@ -42,7 +45,9 @@
                 <div class="block gap-x-4 items-center">
                     <form action="/user/keranjang/" method="POST">
                         @csrf
-                        <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
+                        @auth
+                            <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
+                        @endauth
                         <input type="hidden" name="id_produk" value="{{ $produk->id }}">
                         <input type="hidden" name="total_harga" value="{{ $produk->harga }}">
                         <div class="flex flex-row items-center text-light justify-start gap-x-8 mb-4">
@@ -78,6 +83,8 @@
         <div class="flex flex-col">
             <h3 class="text-light">Kategori</h3>
             <p class="text-primary font-semibold mb-8">Handphone</p>
+            <h3 class="text-light">Brand</h3>
+            <p class="text-primary font-semibold mb-8">{{ $produk->brand->nama_brand }}</p>
             <h3 class="text-light">Stok</h3>
             <p>{{ $produk->stok }}</p>
         </div>

@@ -12,6 +12,7 @@
                     <th>Deskripsi Produk</th>
                     <th>Harga</th>
                     <th>Stok</th>
+                    <th>Brand</th>
                     <th>Kategori</th>
                     <th>Action</th>
                 </tr>
@@ -20,7 +21,8 @@
                 @foreach ($produks as $index => $produk)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td><img src="{{ asset('storage/images/' . $produk->foto_produk) }}" alt="{{ $produk->nama_produk }}">
+                        <td><img width="100px" src="{{ asset('storage/images/' . $produk->foto_produk) }}"
+                                alt="{{ $produk->nama_produk }}">
                         </td>
                         <td>{{ $produk->nama_produk }}</td>
                         <td>
@@ -29,6 +31,7 @@
                         </td>
                         <td>Rp{{ number_format($produk->harga) }}</td>
                         <td>{{ $produk->stok }}</td>
+                        <td>{{ $produk->brand->nama_brand }}</td>
                         <td>{{ $produk->kategori->nama_kategori }}</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center gap-2">
@@ -45,5 +48,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{-- {{ $produks->links() }} --}}
     </div>
 @endsection
