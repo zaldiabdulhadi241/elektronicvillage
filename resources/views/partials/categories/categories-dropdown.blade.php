@@ -32,7 +32,7 @@
             <div
                 class="absolute left-0 hidden group-focus:block top-full min-w-full w-max bg-bg3 shadow-md mt-1 rounded">
                 <ul class="text-left rounded">
-                    <li class="px-4 py-1 hover:bg-line">Xiaomi</li>
+                    <li class="px-4 py-1 hover:bg-line"><a href="/brands/1">Xiaomi</a></li>
                     <li class="px-4 py-1 hover:bg-line">Samsung</li>
                     <li class="px-4 py-1 hover:bg-line">Oppo</li>
                     <li class="px-4 py-1 hover:bg-line">Vivo</li>

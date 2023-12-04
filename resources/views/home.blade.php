@@ -8,7 +8,6 @@
 
     @section('container')
         <div class="container px-32 mx-auto my-5">
-            @include('partials.categories.categories-dropdown')
             @include('partials.carousel')
             <div class="best-promo mb-28 mt-3">
                 <div class="flex flex-row justify-between">

@@ -24,6 +24,7 @@ class BrandController extends Controller
     }
     public function edit(Brand $brand)
     {
+        return view('admin.brands.edit');
     }
     public function update(Brand $brand, Request $request)
     {

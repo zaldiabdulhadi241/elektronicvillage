@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionHistoryController;
+use App\Models\Brand;
 use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::get('/', function () {
     return view('home', [
         'kategoriList' => Kategori::get(),
         'produkList' => Produk::latest()->get()->load('kategori'),
+        'brandList' => Brand::latest()->get(),
     ]);
 });
 
@@ -52,12 +54,6 @@ Route::post('/checkout', [CheckoutController::class, 'process'])->middleware('au
 Route::get('/checkout/{transaction}', [CheckoutController::class, 'checkout'])->name("checkout");
 Route::get('/checkout/success/{transaction}', [CheckoutController::class, 'success'])->name("checkout-success");
 
-
-Route::get('/discover', function () {
-    return view('produk.index');
-});
-
-
 Route::post('/keranjang', [KeranjangController::class, 'store'])->prefix('user')->middleware('auth');
 Route::get('/keranjang/{user}', [KeranjangController::class, 'index'])->prefix('user')->middleware('auth');
 Route::delete('/keranjang/{keranjang}', [KeranjangController::class, 'destroy'])->prefix('user')->middleware('auth');
@@ -72,7 +68,21 @@ Route::get('/produks', function () {
     $data = Produk::latest()->get()->load('kategori');
     return view('user.produkList', [
         'produkList' => $data,
-        'title' => $data[1]->kategori->nama_kategori,
+        'title' => 'Discover',
+    ]);
+});
+
+Route::get('/categories/{category:slug}', function (Kategori $category) {
+    return view('user.produkList', [
+        'title' => "Produk Berdasarkan Kategori: $category->nama_kategori",
+        'produkList' => $category->produk->load('kategori'),
+    ]);
+});
+
+Route::get('/brands/{brand}', function (Brand $brand) {
+    return view('user.produkList', [
+        'title' => "Produk Berdasarkan Merk: $brand->nama_brand",
+        'produkList' => $brand->produk->load('brand'),
     ]);
 });
 

@@ -13,6 +13,11 @@ class Brand extends Model
 
     public function produk()
     {
-        return $this->hasMany(Produk::class, 'id_produk');
+        return $this->hasMany(Produk::class, 'id_brand', 'id');
+    }
+
+    public function kategori()
+    {
+        return $this->hasMany(Kategori::class, 'id_brand', 'id');
     }
 }

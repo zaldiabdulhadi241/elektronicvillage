@@ -16,7 +16,8 @@
                 @foreach ($brands as $index => $brand)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td><img src="{{ asset('storage/images/' . $brand->foto_brand) }}" alt="{{ $brand->nama_brand }}">
+                        <td><img class="object-contain" height="100px"
+                                src="{{ asset('storage/images/' . $brand->gambar_brand) }}" alt="{{ $brand->nama_brand }}">
                         </td>
                         <td>{{ $brand->nama_brand }}</td>
                         <td>

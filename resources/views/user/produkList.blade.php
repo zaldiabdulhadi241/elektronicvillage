@@ -5,7 +5,7 @@
     <div class="container px-32 mx-auto my-5">
         <h1 class="text-primary text-2xl font-bold my-4">{{ $title }}</h1>
         <div class="grid grid-cols-4 gap-x-4">
-            @foreach ($produkList->where('id_kategori', 1) as $produk)
+            @foreach ($produkList as $produk)
                 <a href="/produk/{{ $produk->slug }}"
                     class="bg-white border border-border rounded-3xl shadow relative overflow-hidden">
                     <div

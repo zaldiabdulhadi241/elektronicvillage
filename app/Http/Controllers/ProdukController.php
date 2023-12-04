@@ -20,14 +20,6 @@ class ProdukController extends Controller
         ]);
     }
 
-    public function produks()
-    {
-        $data = Produk::latest()->get()->load('kategori');
-        return view('user.produkList', [
-            'produkList' => $data,
-        ]);
-    }
-
     public function tambah_produk()
     {
         $data = Kategori::latest()->get();
