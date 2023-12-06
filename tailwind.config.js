@@ -16,6 +16,7 @@ export default {
             line: "#D9D9D9",
             error: "#D25C62",
             success: "#809C13",
+            popup: "#3C5077",
         },
         fontFamily: {
             hanken: ["Hanken Grotesk", "sans-serif"],
@@ -24,5 +25,5 @@ export default {
             display: ["group-focus"],
         },
     },
-    plugins: [],
+    plugins: [require("tw-elements/dist/plugin.cjs")],
 };
