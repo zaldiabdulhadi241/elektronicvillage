@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminManageController;
 use App\Http\Controllers\AdminTransactionController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\getApi;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
@@ -128,3 +129,5 @@ Route::post('/transaksi', [TransactionController::class, 'store'])->prefix('user
 // Route::put('/transaksi', [TransactionController::class, 'update'])->prefix('user');
 // Route::delete('/transaksi', [TransactionController::class, 'destroy'])->prefix('user');
 Route::get('/admin/transaksi', [AdminTransactionController::class, 'index']);
+
+Route::get('/rajaongkir', [getApi::class, 'index']);
