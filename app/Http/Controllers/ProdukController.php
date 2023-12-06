@@ -42,7 +42,7 @@ class ProdukController extends Controller
 
         if ($request->hasFile('foto_produk')) {
             $reqName = $request->file('foto_produk')->getClientOriginalName();
-            $request->file('foto_produk')->storeAs('images', $reqName);
+            $request->file('foto_produk')->storeAs('public/images', $reqName);
             $data['foto_produk'] = $reqName;
         }
 
@@ -73,7 +73,7 @@ class ProdukController extends Controller
         if ($request->hasFile('imageUrl')) {
             Storage::delete('img/' . $oldImage);
             $reqName = $request->file('imageUrl')->getClientOriginalName();
-            $request->file('imageUrl')->storeAs('images', $reqName);
+            $request->file('imageUrl')->storeAs('public/images', $reqName);
             $data['imageUrl'] = $reqName;
         }
 

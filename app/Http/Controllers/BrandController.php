@@ -21,6 +21,11 @@ class BrandController extends Controller
     }
     public function store(Request $request)
     {
+        $data = $request->all();
+        $request['id_kategori'] = 1;
+        Brand::create($request->all());
+
+        return redirect('/admin/brands');
     }
     public function edit(Brand $brand)
     {
